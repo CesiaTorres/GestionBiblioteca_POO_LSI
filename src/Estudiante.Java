@@ -17,8 +17,8 @@ public class Estudiante extends Socio {
      * @param p_diasPrestamo   Cantidad de días permitidos de préstamo (heredado de Socio)
      * @param p_carrera        Carrera que el estudiante está cursando
      */
-    public Estudiante(int p_dniSocio, String p_nombre, int p_diasPrestamo, String p_carrera){
-        super(p_dniSocio, p_nombre, p_diasPrestamo);
+    public Estudiante(int p_dniSocio, String p_nombre, int p_diasPrestamo, ArrayList p_listaPrestamos, String p_carrera){
+        super(p_dniSocio, p_nombre, p_diasPrestamo, p_listaPrestamos);
         this.setCarrera(p_carrera);
     }
 
