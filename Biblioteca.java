@@ -229,6 +229,9 @@ public class Biblioteca
         return prestamosVencidos;
     }
 
+    /**
+     * @return
+     */
     public ArrayList<Socio> docentesResponsables() {
         ArrayList<Socio> docentesResponsables = new ArrayList<Socio>();
         for (Socio socio : this.getSocios()) {
@@ -242,6 +245,11 @@ public class Biblioteca
         return docentesResponsables;
     }
 
+    /**
+     * @param p_libro
+     * @return
+     * @throws LibroNoPrestadoException
+     */
     public String quienTieneElLibro(Libro p_libro) throws LibroNoPrestadoException {
         if (!p_libro.prestado()) {
             throw new LibroNoPrestadoException(
@@ -253,6 +261,10 @@ public class Biblioteca
         }
     }
 
+    /**
+     * @param p_dni
+     * @return
+     */
     public Socio buscarSocio(int p_dni) {
         for (Socio socio : this.getSocios()) {
             if (socio.getDniSocio() == p_dni) {
@@ -262,6 +274,9 @@ public class Biblioteca
         return null;
     }
 
+    /**
+     * @return
+     */
     public String listaDeSocios() {
         String resultado = "";
         int contador = 1;
@@ -272,5 +287,40 @@ public class Biblioteca
         return resultado;
     }
 
+    /**
+     * @return
+     */
+    public String listaDeLibros() {
+        String resultado = "";
+        int contador = 1;
+        for (Libro libro : this.getLibros()) {
+            resultado += contador + ") " + libro.toString() + "||" + (libro.prestado() ? "Si" : "No") + "\n";
+            contador++;
+        }
+        return resultado;
+    }
     
+    /**
+     * @return
+     */
+    public String listaDeTitulos() {
+        String resultado = "";
+        int contador = 1;
+        for (Libro libro : this.getLibros()) {
+            resultado += contador + ") " + libro.toString() + "\n";
+            contador++;
+        }
+        return resultado;
+    }
+
+    /**
+     * @return
+     */
+    public String istaDeDocentesResponsables() {
+        String resultado = "";
+        for (Socio socio : this.docentesResponsables()) {
+            resultado +=   socio.toString() + "\n";
+        }
+        return resultado;
+    }
 }
