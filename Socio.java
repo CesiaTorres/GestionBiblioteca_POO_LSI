@@ -48,11 +48,11 @@ public abstract class Socio {
       return this.prestamos;
    }
 
-   public void addPrestamo(Prestamo p_prestamo) {
+   public void agregarPrestamo(Prestamo p_prestamo) {
       this.getPrestamos().add(p_prestamo);
    }
 
-   public void removePrestamo(Prestamo p_prestamo) {
+   public void quitarPrestamo(Prestamo p_prestamo) {
       this.getPrestamos().remove(p_prestamo);
    }
 

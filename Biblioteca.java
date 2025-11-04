@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -162,16 +163,114 @@ public class Biblioteca
             System.out.println("Error al agregar el socio docente.");
         }
     }
-    //+prestarLibro(p_fechaRetiro: Calendar, p_socio: Socio, p_libro: Libro): boolean
+
+    /**
+     * @param p_fechaRetiro
+     * @param p_socio
+     * @param p_libro
+     * @return boolean
+     */
     public boolean prestarLibro(Calendar p_fechaRetiro, Socio p_socio, Libro p_libro) {
         if (p_socio.puedePedir() && !p_libro.prestado()) {
             Prestamo prestamo = new Prestamo(p_fechaRetiro, p_socio, p_libro);
-            p_socio.addPrestamo(prestamo);
+            p_socio.agregarPrestamo(prestamo);
             System.out.println("Préstamo realizado exitosamente.");
             return true;
         } else {
-            System.out.println("No se puede realizar el préstamo. Verifique la disponibilidad del libro o la capacidad del socio.");
+            System.out.println(
+                    "No se puede realizar el préstamo. Verifique la disponibilidad del libro o la capacidad del socio.");
             return false;
         }
     }
+
+    /**
+     * @param p_libro
+     * @throws LibroNoPrestadoException
+     */
+    public void devolverLibro(Libro p_libro) throws LibroNoPrestadoException {
+        if (!p_libro.prestado()) {
+            throw new LibroNoPrestadoException(
+                    "El libro " + p_libro.getTitulo() + " no se puede devolver ya que se encuentra en la biblioteca");
+        } else {
+            Prestamo prestamo = p_libro.ultimoPrestamo();
+            Calendar fechaDevolucion = Calendar.getInstance();
+            prestamo.registrarFechaDevolucion(fechaDevolucion);
+            System.out.println("Libro devuelto exitosamente.");
+        }
+    }
+    
+    /**
+     * @param p_objeto
+     * @return 2
+     */
+    public int cantidadSociosPorTipo(String p_objeto) {
+        int contador = 0;
+        for (Socio socio : this.getSocios()) {
+            if (socio.soyDeLaClase().equals(p_objeto)) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+    /**
+     * @return
+     */
+    public ArrayList<Prestamo> prestamosVencidos() {
+        Calendar fecha = Calendar.getInstance();
+        ArrayList<Prestamo> prestamosVencidos = new ArrayList<Prestamo>();
+        for (Socio socio : this.getSocios()) {
+            for (Prestamo prestamo : socio.getPrestamos()) {
+                if (prestamo.getFechaDevolucion() == null && prestamo.vencido(fecha)) {
+                    prestamosVencidos.add(prestamo);
+                }
+            }
+        }
+        return prestamosVencidos;
+    }
+
+    public ArrayList<Socio> docentesResponsables() {
+        ArrayList<Socio> docentesResponsables = new ArrayList<Socio>();
+        for (Socio socio : this.getSocios()) {
+            if (socio.soyDeLaClase().equals("Docente")) {
+                Docente docente = (Docente) socio;
+                if (docente.esResponsable()) {
+                    docentesResponsables.add(docente);
+                }
+            }
+        }
+        return docentesResponsables;
+    }
+
+    public String quienTieneElLibro(Libro p_libro) throws LibroNoPrestadoException {
+        if (!p_libro.prestado()) {
+            throw new LibroNoPrestadoException(
+                    "El libro se encuentra en la biblioteca.");
+        } else {
+            Prestamo prestamo = p_libro.ultimoPrestamo();
+            Socio socio = prestamo.getSocio();
+            return socio.toString();
+        }
+    }
+
+    public Socio buscarSocio(int p_dni) {
+        for (Socio socio : this.getSocios()) {
+            if (socio.getDniSocio() == p_dni) {
+                return socio;
+            }
+        }
+        return null;
+    }
+
+    public String listaDeSocios() {
+        String resultado = "";
+        int contador = 1;
+        for (Socio socio : this.getSocios()) {
+            resultado += contador + ") " + socio.toString() + "\n";
+            contador++;
+        }
+        return resultado;
+    }
+
+    
 }

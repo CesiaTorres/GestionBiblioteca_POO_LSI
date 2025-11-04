@@ -68,11 +68,11 @@ public class Libro {
       return prestamo;
    }
 
-   public void addPrestamo(Prestamo p_prestamo) {
+   public void agregarPrestamo(Prestamo p_prestamo) {
       this.getPrestamos().add(p_prestamo);
    }
 
-   public void removePrestamo(Prestamo p_prestamo) {
+   public void quitarPrestamo(Prestamo p_prestamo) {
       this.getPrestamos().remove(p_prestamo);
    }
 
@@ -84,6 +84,13 @@ public class Libro {
       }
    }
 
+   public Prestamo ultimoPrestamo() {
+      Prestamo ultimo = null;
+      if (!this.getPrestamos().isEmpty()) {
+         ultimo = this.getPrestamos().get(this.getPrestamos().size() - 1);
+      }
+      return ultimo;
+   }
    public String toString() {
       return "Titulo: " + this.getTitulo();
    }
