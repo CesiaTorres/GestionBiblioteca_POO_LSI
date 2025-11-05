@@ -17,15 +17,30 @@ public class Docente extends Socio{
     private String area;
 
     /**  
-     * Constructor de la clase Docente. Inicializa sus atributos y los heredados de Socio.
+     * Constructor de la clase  Docente. Inicializa sus atributos y los heredados de Socio. 
+     * Con uns lista de prestamos vacia (0...n)
      *
      * @param p_dniSocio        DNI del docente
      * @param p_nombre          Nombre del docente
+     * @param p_area            Área de especialización del docente
+     */
+    public Docente(int p_dniSocio, String p_nombre,  String p_area){
+        super(p_dniSocio, p_nombre, 5 );
+        this.setArea(p_area);
+    }
+
+    /**  
+     * Constructor de la clase  Docente. Inicializa sus atributos y los heredados de Socio. 
+     * Con uns lista de prestamos. (*...n)
+     *
+     * @param p_dniSocio        DNI del docente
+     * @param p_nombre          Nombre del docente
+     * @param p_diasPrestamo    Cantidad de días de préstamo permitidos
      * @param p_listaPrestamos  Lista de préstamos que el docente posee
      * @param p_area            Área de especialización del docente
      */
-    public Docente(int p_dniSocio, String p_nombre, ArrayList<Prestamo> p_listaPrestamos, String p_area){
-        super(p_dniSocio, p_nombre, 5, p_listaPrestamos); //sin prestamos??
+    public Docente(int p_dniSocio, String p_nombre, ArrayList p_listaPrestamos, String p_area){
+        super(p_dniSocio, p_nombre, 5 , p_listaPrestamos);
         this.setArea(p_area);
     }
     
