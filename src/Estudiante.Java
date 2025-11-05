@@ -9,16 +9,29 @@ public class Estudiante extends Socio {
     //La carrera universitaria que cursa el estudiante
     private String carrera;
 
+
     /**
-     * Constructor para crear un nuevo estudiante.
+     * Constructor para crear un nuevo estudiante con una lista de prestamos vacia (0..*)
      *
      * @param p_dniSocio       DNI del estudiante (heredado de Socio)
      * @param p_nombre         Nombre del estudiante (heredado de Socio)
-     * @param p_diasPrestamo   Cantidad de días permitidos de préstamo (heredado de Socio)
      * @param p_carrera        Carrera que el estudiante está cursando
      */
-    public Estudiante(int p_dniSocio, String p_nombre, int p_diasPrestamo, ArrayList p_listaPrestamos, String p_carrera){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_listaPrestamos);
+    public Estudiante(int p_dniSocio, String p_nombre, String p_carrera){
+        super(p_dniSocio, p_nombre, 20,);
+        this.setCarrera(p_carrera);
+    }
+    
+    /**
+     * Constructor para crear un nuevo estudiante con una lista de prestamos (*..n)
+     *
+     * @param p_dniSocio       DNI del estudiante (heredado de Socio)
+     * @param p_nombre         Nombre del estudiante (heredado de Socio)
+     * @param p_listaParametros   lista de prestamos (hereda de Socio)
+     * @param p_carrera        Carrera que el estudiante está cursando
+     */
+    public Estudiante(int p_dniSocio, String p_nombre,  ArrayList<Prestamo> p_listaPrestamos, String p_carrera){
+        super(p_dniSocio, p_nombre, 20, p_listaPrestamos);
         this.setCarrera(p_carrera);
     }
 

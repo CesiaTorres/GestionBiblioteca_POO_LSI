@@ -15,8 +15,22 @@ public class Docente extends Socio{
     /** Área de especialización del docente. */
     private String area;
 
+     /**  
+     * Constructor de la clase  Docente. Inicializa sus atributos y los heredados de Socio. 
+     * Con uns lista de prestamos vacia (0...n)
+     *
+     * @param p_dniSocio        DNI del docente
+     * @param p_nombre          Nombre del docente
+     * @param p_area            Área de especialización del docente
+     */
+    public Docente(int p_dniSocio, String p_nombre,  String p_area){
+        super(p_dniSocio, p_nombre, 5 );
+        this.setArea(p_area);
+    }
+
     /**  
-     * Constructor de la clase  Docente. Inicializa sus atributos y los heredados de Socio.
+     * Constructor de la clase  Docente. Inicializa sus atributos y los heredados de Socio. 
+     * Con uns lista de prestamos. (*...n)
      *
      * @param p_dniSocio        DNI del docente
      * @param p_nombre          Nombre del docente
@@ -24,10 +38,11 @@ public class Docente extends Socio{
      * @param p_listaPrestamos  Lista de préstamos que el docente posee
      * @param p_area            Área de especialización del docente
      */
-    public Docente(int p_dniSocio, String p_nombre, int p_diasPrestamo, ArrayList p_listaPrestamos, String p_area){
-        super(p_dniSocio, p_nombre, p_diasPrestamo, p_listaPrestamos);
+    public Docente(int p_dniSocio, String p_nombre, ArrayList p_listaPrestamos, String p_area){
+        super(p_dniSocio, p_nombre, 5 , p_listaPrestamos);
         this.setArea(p_area);
     }
+
 
     /stters y getters
     private void setArea(String p_area){
@@ -44,11 +59,19 @@ public class Docente extends Socio{
      * @return true si no tiene préstamos vencidos, false en caso contrario
      */
     public boolean esResponsable(){
-        for(Prestamo unPrestamo: getListaPrestamos()){
-            if(unPrestamo.vencido(Calendar.getInstance()) ){
-                return false;
-            }
+        for(Prestamo unPrestamo: super.getListaPrestamos()){ 
+        Calendar fechaChequeo;
+
+        if (unPrestamo.getFechaDevolucion() != null) { 
+            fechaChequeo = unPrestamo.getFechaDevolucion();
+        } else {
+            fechaChequeo = Calendar.getInstance(); 
         }
+
+        if (unPrestamo.vencido(fechaChequeo) ){ 
+            return false;
+        }
+     }
         return true;
     }
 
@@ -61,8 +84,8 @@ public class Docente extends Socio{
     public void cambiarDiasDePrestamo(int p_dias){
         
         if(this.esResponsable()){
-            int diasAdicionales = super.getDiasPrestamo() + p_dias ;
-            super.setDiasPrestamo(diasAdicionales); 
+            int diasAdicionales = this.getDiasPrestamo() + p_dias ;
+            this.setDiasPrestamo(diasAdicionales); 
         }
     } 
 
