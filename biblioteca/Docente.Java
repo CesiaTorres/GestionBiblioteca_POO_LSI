@@ -39,7 +39,7 @@ public class Docente extends Socio{
      * @param p_listaPrestamos  Lista de préstamos que el docente posee
      * @param p_area            Área de especialización del docente
      */
-    public Docente(int p_dniSocio, String p_nombre, ArrayList <Prestamo> p_listaPrestamos, String p_area){
+    public Docente(int p_dniSocio, String p_nombre, ArrayList<Prestamo> p_listaPrestamos, String p_area){
         super(p_dniSocio, p_nombre, 5 , p_listaPrestamos);
         this.setArea(p_area);
     }
