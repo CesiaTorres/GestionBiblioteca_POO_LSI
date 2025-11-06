@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=GestorPersistencia
+comment1.params=
+comment1.target=GestorPersistencia()
+comment2.params=
+comment2.target=GestorPersistencia.CargaDatos\ cargarDatos()
+comment2.text=\r\n\ Carga\ todos\ los\ datos\ (Libros,\ Socios\ y\ Pr\u00E9stamos)\ y\ los\ vincula.\r\n
+comment3.params=libros\ socios\ prestamos
+comment3.target=void\ vincularPrestamos(java.util.ArrayList,\ java.util.ArrayList,\ java.util.List)
+comment3.text=\r\n\ Asigna\ los\ pr\u00E9stamos\ cargados\ a\ las\ listas\ internas\ de\ los\ objetos\ Socio\ y\ Libro.\r\n
+comment4.params=libros\ socios
+comment4.target=void\ guardarDatos(java.util.List,\ java.util.List)
+comment4.text=\r\n\ Guarda\ el\ estado\ actual\ de\ la\ biblioteca\ (Libros,\ Socios\ y\ Pr\u00E9stamos).\r\n
+numComments=5

@@ -175,7 +175,14 @@ public class Libro
      * Metodo redefinido para mostrar el Titulo del Libro
      * @return un String que muestra el Titulo del Libro.
      */
-    public String toString(){
+    public String toString() {
         return "Titulo: " + this.getTituloLibro();
+    }
+    
+    public String toCSV() {
+        return this.getTituloLibro() + ";" + 
+               this.getEdicionLibro() + ";" + 
+               this.getEditorialLibro() + ";" + 
+               this.getAnioLibro();
     }
 }

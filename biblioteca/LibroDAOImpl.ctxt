@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=LibroDAOImpl
+comment1.params=
+comment1.target=java.util.List\ cargarLibros()
+comment1.text=\r\n\ Carga\ todos\ los\ libros\ desde\ el\ archivo\ TXT,\ realizando\ el\ parseo\ (de\ String\ a\ Objeto).\r\n
+comment2.params=libros
+comment2.target=void\ guardarLibros(java.util.List)
+comment2.text=\r\n\ Guarda\ la\ lista\ completa\ de\ libros\ en\ el\ archivo,\ sobrescribiendo\ el\ contenido\ anterior.\r\n
+comment3.params=libro
+comment3.target=void\ guardarLibro(Libro)
+comment4.params=titulo
+comment4.target=Libro\ obtenerPorTitulo(java.lang.String)
+comment5.params=
+comment5.target=java.util.List\ obtenerTodos()
+comment6.params=libroActualizado
+comment6.target=void\ actualizarLibro(Libro)
+comment7.params=libro
+comment7.target=void\ eliminarLibro(Libro)
+comment8.params=
+comment8.target=java.lang.String\ getNombreArchivo()
+comment9.params=libros
+comment9.target=void\ guardarTodos(java.util.List)
+numComments=10

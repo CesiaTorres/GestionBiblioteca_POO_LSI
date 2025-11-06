@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=GestionBiblioteca
+comment0.text=\r\n\ La\ clase\ GestionBiblioteca\ es\ la\ encargada\ de\ gestionar\ la\ informaci\u00F3n\ de\ la\ biblioteca.\r\n\ \r\n\ @author\ Torres\ Jemina\ Cesia\r\n\ @author\ Reyes\ Kevin\ Josue\r\n\ @version\ 1.0\r\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=p_biblioteca
+comment2.target=void\ crearLibros(Biblioteca)
+comment3.params=p_biblioteca
+comment3.target=void\ crearSocios(Biblioteca)
+numComments=4

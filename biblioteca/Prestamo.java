@@ -1,5 +1,6 @@
  
 import java.util.Calendar;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 /**
  * La clase Prestamo representa el préstamo de un libro realizado por un socio.
@@ -94,7 +95,7 @@ public class Prestamo {
      */
     public String toString() {
         SimpleDateFormat fecha = new SimpleDateFormat("yyyy/MM/dd");
-        String retiro = fecha.format(this.getFechaRetiro().getTime());     
+        String retiro = fecha.format(this.getFechaRetiro().getTime());
         String devolucion = " ";
 
         if (this.getFechaDevolucion() == null) {
@@ -103,9 +104,39 @@ public class Prestamo {
             devolucion = fecha.format(this.getFechaDevolucion().getTime());
         }
 
-        return  "Retiro: " + retiro +
+        return "Retiro: " + retiro +
                 " - Devolución: " + devolucion + "\n" +
                 "Libro: " + this.getLibro().getTituloLibro() + "\n" +
                 "Socio: " + this.getSocio().getNombre();
+    }
+    private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
+
+    public String toCSV() {
+        // Obtenemos las claves foráneas
+        String dniSocio = String.valueOf(this.getSocio().getDniSocio());
+        String tituloLibro = this.getLibro().getTituloLibro();
+        
+        // Formateamos las fechas
+        String retiroStr = formatCalendar(this.getFechaRetiro());
+        String devolucionStr = formatCalendar(this.getFechaDevolucion());
+        
+        return dniSocio + ";" + tituloLibro + ";" + retiroStr + ";" + devolucionStr;
+    }
+
+    /**
+     * Ayudante estático para formatear un Calendar a String.
+     */
+    public static String formatCalendar(Calendar cal) {
+        if (cal == null) return "NULL";
+        return DATE_FORMAT.format(cal.getTime());
+    }
+
+    /**
+     * Ayudante estático para parsear un String (de TXT) a Calendar.
+     */
+    public static Calendar parseCalendar(String dateStr) throws ParseException {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(DATE_FORMAT.parse(dateStr));
+        return cal;
     }
 }

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=Estudiante
+comment0.text=\r\n\ La\ clase\ Estudiante\ representa\ a\ un\ socio\ que\ es\ estudiante\ dentro\ del\ sistema\ de\ gesti\u00F3n\ de\ biblioteca.\r\n\ Hereda\ de\ la\ clase\ abstracta\ Socio\ y\ agrega\ informaci\u00F3n\ espec\u00EDfica\ como\ la\ carrera\ que\ cursa.\r\n\r\n\ @author\ Romero\ Ingrid\ Luana\r\n\ @version\ 1.0\r\n
+comment1.params=p_dniSocio\ p_nombre\ p_listaPrestamos\ p_carrera
+comment1.target=Estudiante(int,\ java.lang.String,\ java.util.ArrayList,\ java.lang.String)
+comment1.text=\r\n\ Constructor\ para\ crear\ un\ nuevo\ estudiante.\r\n\ Se\ le\ pasa\ una\ coleccion\ inicializada\ por\ parametros.\r\n\r\n\ @param\ p_dniSocio\ \ \ \ \ \ \ DNI\ del\ estudiante\ (heredado\ de\ Socio)\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ Nombre\ del\ estudiante\ (heredado\ de\ Socio)\r\n\ @param\ p_diasPrestamo\ \ \ Cantidad\ de\ d\u00EDas\ permitidos\ de\ pr\u00E9stamo\ (heredado\ de\ Socio)\r\n\ @param\ p_carrera\ \ \ \ \ \ \ \ Carrera\ que\ el\ estudiante\ est\u00E1\ cursando\r\n
+comment2.params=p_dniSocio\ p_nombre\ p_carrera
+comment2.target=Estudiante(int,\ java.lang.String,\ java.lang.String)
+comment2.text=\r\n\ Constructor\ para\ crear\ un\ nuevo\ estudiante.\r\n\ No\ se\ le\ pasa\ una\ coleccion\ inicializada.\ Socio\ se\ encarga\ de\ inicializar.\r\n\r\n\ @param\ p_dniSocio\ \ \ \ \ \ \ DNI\ del\ estudiante\ (heredado\ de\ Socio)\r\n\ @param\ p_nombre\ \ \ \ \ \ \ \ \ Nombre\ del\ estudiante\ (heredado\ de\ Socio)\r\n\ @param\ p_diasPrestamo\ \ \ Cantidad\ de\ d\u00EDas\ permitidos\ de\ pr\u00E9stamo\ (heredado\ de\ Socio)\r\n\ @param\ p_carrera\ \ \ \ \ \ \ \ Carrera\ que\ el\ estudiante\ est\u00E1\ cursando\r\n
+comment3.params=p_carrera
+comment3.target=void\ setCarrera(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getCarrera()
+comment5.params=
+comment5.target=boolean\ puedePedir()
+comment5.text=\r\n\ Determina\ si\ el\ estudiante\ puede\ pedir\ un\ nuevo\ pr\u00E9stamo\ de\ libro.\r\n\ \r\n\ Un\ estudiante\ puede\ pedir\ un\ libro\ si\ cumple\ con\:\ +no\ tiene\ ning\u00FAn\ pr\u00E9stamo\ vencido(20\ d\u00EDas\ despu\u00E9s\ de\ la\ fecha\ de\ retiro)\ \r\n\ +\ si\ no\ tiene\ m\u00E1s\ de\ 3\ libros\ prestados\ en\ su\ poder.\r\n\r\n\ @return\ \ true\ si\ puede\ pedir\ un\ libro,\ false\ en\ caso\ contrario\r\n
+comment6.params=
+comment6.target=java.lang.String\ soyDeLaClase()
+comment6.text=\r\n\ Devuelve\ el\ nombre\ de\ la\ clase\ actual.\r\n\r\n\ @return\ La\ cadena\ "Estudiante".\r\n
+numComments=7

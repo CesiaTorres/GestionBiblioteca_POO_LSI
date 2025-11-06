@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=PrestamoDAOImpl
+comment1.params=p_libroDAO\ p_socioDAO
+comment1.target=PrestamoDAOImpl(LibroDAOImpl,\ SocioDAOImpl)
+comment1.text=\r\n\ Constructor\ que\ recibe\ los\ DAOs\ necesarios\ para\ resolver\ las\ relaciones.\r\n
+comment2.params=
+comment2.target=java.lang.String\ getNombreArchivo()
+comment3.params=
+comment3.target=java.util.List\ obtenerTodos()
+comment4.params=prestamos
+comment4.target=void\ guardarTodos(java.util.List)
+numComments=5

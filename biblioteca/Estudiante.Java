@@ -1,4 +1,4 @@
-package biblioteca;
+import java.util.*;
 /**
  * La clase Estudiante representa a un socio que es estudiante dentro del sistema de gestión de biblioteca.
  * Hereda de la clase abstracta Socio y agrega información específica como la carrera que cursa.
@@ -20,7 +20,7 @@ public class Estudiante extends Socio {
      * @param p_carrera        Carrera que el estudiante está cursando
      */
     public Estudiante(int p_dniSocio, String p_nombre, ArrayList<Prestamo> p_listaPrestamos, String p_carrera){
-        super(p_dniSocio, p_nombre, 20, p_listaPrestamos);
+        super(p_dniSocio, p_nombre, 20 , p_listaPrestamos);
         this.setCarrera(p_carrera);
     }
     /**
@@ -68,7 +68,12 @@ public class Estudiante extends Socio {
      * @return La cadena "Estudiante".
      */
     @Override
-    public String soyDeLaClase(){
+    public String soyDeLaClase() {
         return "Estudiante";
+    }
+    
+    public String toCSV() {
+    // Formato: DNI;Nombre;DiasPrestamo;TIPO_CLASE;Carrera
+        return this.toCSVBase() + ";" + this.soyDeLaClase() + ";" + this.getCarrera();
     }
 }

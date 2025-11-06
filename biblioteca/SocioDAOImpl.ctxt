@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=SocioDAOImpl
+comment1.params=
+comment1.target=java.util.List\ cargarSocios()
+comment1.text=\r\n\ Carga\ y\ parsea\ (analiza)\ todos\ los\ registros\ de\ socios\ desde\ el\ archivo\ TXT.\r\n\ Esta\ l\u00F3gica\ fue\ explicada\ anteriormente.\r\n
+comment2.params=socios
+comment2.target=void\ guardarSocios(java.util.List)
+comment3.params=dni
+comment3.target=Socio\ obtenerPorDni(int)
+comment3.text=\r\n\ Busca\ un\ socio\ por\ su\ DNI.\r\n\ @param\ dni\ El\ DNI\ del\ socio\ a\ buscar\ (clave\ primaria).\r\n\ @return\ El\ objeto\ Socio\ encontrado\ o\ null\ si\ no\ existe.\r\n
+comment4.params=socio
+comment4.target=void\ guardarSocio(Socio)
+comment5.params=
+comment5.target=java.util.List\ obtenerTodos()
+comment6.params=socioActualizado
+comment6.target=void\ actualizarSocio(Socio)
+comment7.params=socio
+comment7.target=void\ eliminarSocio(Socio)
+numComments=8

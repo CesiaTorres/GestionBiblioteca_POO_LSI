@@ -1,0 +1,2 @@
+999999;Dr. Código Nuevo;5;Docente;Informática
+111111;Ana Garcia;20;Estudiante;Sistemas

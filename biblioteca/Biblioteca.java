@@ -158,7 +158,7 @@ public class Biblioteca{
     public void devolverLibro(Libro p_libro) throws LibroNoPrestadoException {
         if (!p_libro.prestado()) {
             throw new LibroNoPrestadoException(
-                    "El libro " + p_libro.getTitulo() + " no se puede devolver ya que se encuentra en la biblioteca");
+                    "El libro " + p_libro.getTituloLibro() + " no se puede devolver ya que se encuentra en la biblioteca");
         } else {
             Prestamo prestamo = p_libro.ultimoPrestamo();
             Calendar fechaDevolucion = Calendar.getInstance();

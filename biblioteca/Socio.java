@@ -22,7 +22,7 @@ public abstract class Socio {
       this.setDniSocio(p_dniSocio);
       this.setNombre(p_nombre);
       this.setDiasPrestamo(p_diasPrestamo);
-      this.setPrestamos(new ArrayList());
+      this.setPrestamos(new ArrayList<Prestamo>());
    }
 
    /**
@@ -67,7 +67,7 @@ public abstract class Socio {
     * Setter que recibe un dato de tipo ArrayList y permite modificar el atributo prestamos
     * @param p_prestamos
     */
-   private void setPrestamos(ArrayList p_prestamos) {
+   private void setPrestamos(ArrayList<Prestamo> p_prestamos) {
       this.prestamos = p_prestamos;
    }
 
@@ -169,4 +169,8 @@ public abstract class Socio {
     * @return un tipo de dato String
     */
    public abstract String soyDeLaClase();
+   public String toCSVBase() {
+      // Usamos el DNI como ID, Nombre, y los Días de Préstamo por defecto
+      return this.getDniSocio() + ";" + this.getNombre() + ";" + this.getDiasPrestamo();
+   }
 }
