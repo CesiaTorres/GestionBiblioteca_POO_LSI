@@ -1,5 +1,3 @@
-//import java.lang.reflect.Array;
- 
 import java.util.*;
 
 /**
@@ -66,11 +64,19 @@ public class Biblioteca{
     public boolean quitarLibro(Libro p_libro){
         return this.getLibros().remove(p_libro);
     }
-    public boolean agragarSocio(Socio p_socio) {
+    public boolean agregarSocio(Socio p_socio) {
         return this.getSocios().add(p_socio);
     }
     public boolean quitarSocio(Socio p_socio) {
         return this.getSocios().remove(p_socio);
+    }
+    public Socio buscarSocio(int p_dni) {
+        for (Socio unSocio : this.getSocios()) {     
+            if (unSocio.getDniSocio() == p_dni) {
+                return unSocio;
+            }
+        }
+        return null;
     }
     
     //Metodos 
@@ -102,7 +108,7 @@ public class Biblioteca{
     public void nuevoSocioEstudiante(int p_dniSocio, String p_nombre, String p_carrera) {
         Socio socio = new Estudiante(p_dniSocio, p_nombre, p_carrera);
    
-        if (this.agragarSocio(socio)) {
+        if (this.agregarSocio(socio)) {
             System.out.println("Socio estudiante agregado exitosamente.");
         } else {
             System.out.println("Error al agregar el socio estudiante.");
@@ -119,7 +125,7 @@ public class Biblioteca{
     public void nuevoSocioDocente(int p_dniSocio, String p_nombre, String p_area) {
         Socio socio = new Docente(p_dniSocio, p_nombre, p_area);
   
-        if (this.agragarSocio(socio)) {
+        if (this.agregarSocio(socio)) {
             System.out.println("Socio docente agregado exitosamente.");
         } else {
             System.out.println("Error al agregar el socio docente.");
@@ -158,7 +164,7 @@ public class Biblioteca{
     public void devolverLibro(Libro p_libro) throws LibroNoPrestadoException {
         if (!p_libro.prestado()) {
             throw new LibroNoPrestadoException(
-                    "El libro " + p_libro.getTitulo() + " no se puede devolver ya que se encuentra en la biblioteca");
+                    "El libro " + p_libro.getTituloLibro() + " no se puede devolver ya que se encuentra en la biblioteca");
         } else {
             Prestamo prestamo = p_libro.ultimoPrestamo();
             Calendar fechaDevolucion = Calendar.getInstance();
@@ -239,20 +245,7 @@ public class Biblioteca{
 
     }
 
-    /**
-     * Busca un socio por su DNI dentro de la biblioteca.
-     *
-     * @param p_dni DNI del socio buscado.
-     * @return Socio encontrado o null si no existe.
-     */
-    public Socio buscarSocio(int p_dni) {
-        for (Socio unSocio : this.getSocios()) {     
-            if (unSocio.getDniSocio() == p_dni) {
-                return unSocio;
-            }
-        }
-        return null;
-    }
+
 
     /**
      * Genera una lista en formato texto con todos los socios registrados

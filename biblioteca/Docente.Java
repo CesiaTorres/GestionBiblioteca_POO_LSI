@@ -1,4 +1,4 @@
- package biblioteca;
+import java.util.*;
  /**
  * La clase Docente representa a un socio del tipo docente dentro del sistema de biblioteca.
  * Extiende la clase abstracta Socio y añade el atributo correspondiente al área de especialización.
@@ -10,8 +10,6 @@
  * @version 1.0
 **/
  
-import java.util.ArrayList;
-import java.util.Calendar;
 public class Docente extends Socio{
     /** Área de especialización del docente. */
     private String area;

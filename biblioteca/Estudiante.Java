@@ -1,4 +1,4 @@
-package biblioteca;
+import java.util.*;
 /**
  * La clase Estudiante representa a un socio que es estudiante dentro del sistema de gestión de biblioteca.
  * Hereda de la clase abstracta Socio y agrega información específica como la carrera que cursa.
