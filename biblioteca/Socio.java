@@ -130,7 +130,7 @@ public abstract class Socio {
       int libros = 0;
 
       for(Prestamo prestamo: this.getPrestamos()) {
-         if (prestamo.getFechaDevolucion() != null) {
+         if (prestamo.getFechaDevolucion() == null) {
             libros++;
          }
       }
@@ -153,13 +153,13 @@ public abstract class Socio {
     */
    public boolean puedePedir() {
       Calendar hoy = new GregorianCalendar();
-      boolean puede = true;
-
+      
       for(Prestamo prestamo: this.getPrestamos()) {
-         puede = puede && prestamo.vencido(hoy);
+         if (prestamo.vencido(hoy)) {
+            return false; 
+         }
       }
-
-      return puede;
+      return true; 
    }
 
    /**

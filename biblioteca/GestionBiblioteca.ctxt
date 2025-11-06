@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=GestionBiblioteca
+comment0.text=\n\ La\ clase\ GestionBiblioteca\ es\ la\ encargada\ de\ gestionar\ la\ informaci\u00F3n\ de\ la\ biblioteca.\n\ \n\ @author\ Torres\ Jemina\ Cesia\n\ @author\ Reyes\ Kevin\ Josue\n\ @author\ Romero\ Ingrid\ Luana\n\ @author\ Gomez\ Angela\ Rebeca\n\ @author\ Fernandez\ Alejandro\ Facundo\n\ @version\ 1.0\n
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+comment2.params=p_biblioteca\ p_lector
+comment2.target=void\ menuGestionarLibros(Biblioteca,\ java.util.Scanner)
+comment3.params=p_biblioteca\ p_lector
+comment3.target=void\ menuGestionarSocios(Biblioteca,\ java.util.Scanner)
+comment4.params=p_biblioteca\ p_lector
+comment4.target=void\ menuGestionPrestamos(Biblioteca,\ java.util.Scanner)
+comment5.params=p_lector
+comment5.target=int\ leerEnteroValido(java.util.Scanner)
+comment5.text=\n\ Lee\ un\ entero\ desde\ el\ lector,\ repitiendo\ la\ solicitud\ si\ el\ formato\ es\ inv\u00E1lido.\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\n\ @return\ Valor\ entero\n
+comment6.params=p_biblioteca\ p_lector
+comment6.target=void\ agregarLibro(Biblioteca,\ java.util.Scanner)
+comment6.text=\n\ Agrega\ un\ libro\ a\ la\ biblioteca.\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ agregar\u00E1\ el\ libro.\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\n
+comment7.params=p_biblioteca\ p_lector
+comment7.target=Libro\ buscarLibro(Biblioteca,\ java.util.Scanner)
+comment7.text=\n\ Busca\ un\ libro\ en\ la\ biblioteca.\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ buscar\u00E1\ el\ libro.\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\n\ @return\ Libro\ encontrado\ o\ null\ si\ no\ se\ encuentra.\n
+comment8.params=p_biblioteca\ p_lector
+comment8.target=void\ agregarSocio(Biblioteca,\ java.util.Scanner)
+comment8.text=\n\ Registra\ un\ nuevo\ socio.\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ registrar\u00E1\ el\ socio.\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\n
+comment9.params=p_biblioteca\ p_lector
+comment9.target=Socio\ buscarSocio(Biblioteca,\ java.util.Scanner)
+numComments=10

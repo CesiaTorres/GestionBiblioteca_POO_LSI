@@ -55,7 +55,8 @@ public class Estudiante extends Socio {
      */
     @Override
     public boolean puedePedir(){
-        if(super.puedePedir() && super.cantLibrosPrestados() <= 3 ){
+        // Un estudiante puede pedir si no tiene préstamos vencidos y tiene menos de 3 libros prestados
+        if(super.puedePedir() && this.cantLibrosPrestados() < 3 ){
             return true;
         }else{
             return false;

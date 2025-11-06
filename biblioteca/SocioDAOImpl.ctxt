@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=SocioDAOImpl
+comment1.params=socios
+comment1.target=void\ guardarTodos(java.util.List)
+comment2.params=
+comment2.target=java.util.List\ obtenerTodos()
+comment3.params=
+comment3.target=java.lang.String\ getNombreArchivo()
+comment4.params=dni
+comment4.target=Socio\ obtenerPorDni(int)
+numComments=5

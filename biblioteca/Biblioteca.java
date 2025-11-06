@@ -146,6 +146,7 @@ public class Biblioteca{
         if (p_socio.puedePedir() && !p_libro.prestado()) {
             Prestamo prestamo = new Prestamo(p_fechaRetiro, p_socio, p_libro);
             p_socio.agregarPrestamo(prestamo);
+            p_libro.agregarPrestamo(prestamo);
             System.out.println("Préstamo realizado exitosamente.");
             return true;
         } else {
@@ -241,7 +242,7 @@ public class Biblioteca{
         }
         Prestamo prestamo = p_libro.ultimoPrestamo();
         Socio socio = prestamo.getSocio();
-        return socio.getNombre() + "tiene el libro " + p_libro.getTituloLibro();
+        return socio.getNombre() + " tiene el libro " + p_libro.getTituloLibro();
 
     }
 

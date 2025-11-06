@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=LibroDAOImpl
+comment1.params=libros
+comment1.target=void\ guardarTodos(java.util.List)
+comment1.text=\n\ Guarda\ la\ lista\ COMPLETA\ de\ libros\ en\ el\ archivo,\ sobrescribi\u00E9ndolo.\n\ Sigue\ el\ patr\u00F3n\ de\ "Baja\ o\ eliminaci\u00F3n"\ del\ PDF[cite\:\ 173]\:\ \n\ se\ reescribe\ el\ archivo\ solo\ con\ los\ datos\ v\u00E1lidos\ (la\ lista\ actual).\n
+comment2.params=
+comment2.target=java.util.List\ obtenerTodos()
+comment2.text=\n\ Carga\ todos\ los\ libros\ leyendo\ el\ archivo\ secuencial.\n
+comment3.params=
+comment3.target=java.lang.String\ getNombreArchivo()
+comment4.params=libro
+comment4.target=void\ guardarLibro(Libro)
+comment5.params=titulo
+comment5.target=Libro\ obtenerPorTitulo(java.lang.String)
+numComments=6
