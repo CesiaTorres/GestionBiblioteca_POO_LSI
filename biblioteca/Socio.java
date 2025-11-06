@@ -1,8 +1,11 @@
-// Source code is decompiled from a .class file using FernFlower decompiler (from Intellij IDEA).
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * Clase Socio 
+ * @author Facundo Fernandez
+ */
 public abstract class Socio {
     /**
      * Atributos de clase
@@ -13,7 +16,7 @@ public abstract class Socio {
    private ArrayList<Prestamo> prestamos;
 
    /**
-    * Constructor de clase 
+    * Constructor de clase que no recibe la lista de prestamos dentro de los parámetros e instancia una lista vacia 
     * @param p_dniSocio
     * @param p_nombre
     * @param p_diasPrestamo
@@ -22,11 +25,11 @@ public abstract class Socio {
       this.setDniSocio(p_dniSocio);
       this.setNombre(p_nombre);
       this.setDiasPrestamo(p_diasPrestamo);
-      this.setPrestamos(new ArrayList());
+      this.setPrestamos(new ArrayList<Prestamo>());
    }
 
    /**
-    * Constructor de clase
+    * Constructor de clase que recibe una lista de prestamos como parametro y lo asigna al atributo.
     * @param p_dniSocio
     * @param p_nombre
     * @param p_diasPrestamo
@@ -67,7 +70,7 @@ public abstract class Socio {
     * Setter que recibe un dato de tipo ArrayList y permite modificar el atributo prestamos
     * @param p_prestamos
     */
-   private void setPrestamos(ArrayList p_prestamos) {
+   private void setPrestamos(ArrayList<Prestamo> p_prestamos) {
       this.prestamos = p_prestamos;
    }
 
@@ -107,20 +110,16 @@ public abstract class Socio {
     * Metodo publico que permite agregar un dato de tipo Prestamo al atributo prestamos de tipo ArrayList 
     * @param p_prestamo
     */
-   public void agregarPrestamo(Prestamo p_prestamo) {
-      this.getPrestamos().add(p_prestamo);
+   public boolean agregarPrestamo(Prestamo p_prestamo) {
+      return this.getPrestamos().add(p_prestamo);
    }
 
    /**
     * Metodo publico que permite remover un dato de tipo Prestamo al atributo prestamos de tipo ArrayList
     * @param p_prestamo
     */
-   public void removerPrestamo(Prestamo p_prestamo) {
-    if(this.getPrestamos().size() == 0){
-        System.out.println("No tiene archivos para ser borrado");
-    }else{
-        this.getPrestamos().remove(p_prestamo);
-    }
+   public boolean removerPrestamo(Prestamo p_prestamo) {
+      return this.getPrestamos().remove(p_prestamo);
    }
 
    /**
@@ -130,9 +129,9 @@ public abstract class Socio {
    public int cantLibrosPrestados() {
       int libros = 0;
 
-      for(int i = 0; i < this.getPrestamos().size(); ++i) {
-         if (((Prestamo)this.getPrestamos().get(i)).getFechaDevolucion() != null) {
-            ++libros;
+      for(Prestamo prestamo: this.getPrestamos()) {
+         if (prestamo.getFechaDevolucion() != null) {
+            libros++;
          }
       }
 
@@ -143,8 +142,7 @@ public abstract class Socio {
     * Metodo publico que devuelve una cadena de texto 
     */
    public String toString() {
-      int nroDni = this.getDniSocio();
-      return "D.N.I.: " + nroDni + " || " + this.getNombre() + "(" + this.soyDeLaClase() + ") || Libros Prestados: " + this.cantLibrosPrestados();
+      return "D.N.I.: " + this.getDniSocio() + " || " + this.getNombre() + "(" + this.soyDeLaClase() + ") || Libros Prestados: " + this.cantLibrosPrestados();
    }
 
    /**
@@ -157,8 +155,8 @@ public abstract class Socio {
       Calendar hoy = new GregorianCalendar();
       boolean puede = true;
 
-      for(int i = 0; i < this.getPrestamos().size(); ++i) {
-         puede = puede && ((Prestamo)this.getPrestamos().get(i)).vencido(hoy);
+      for(Prestamo prestamo: this.getPrestamos()) {
+         puede = puede && prestamo.vencido(hoy);
       }
 
       return puede;
