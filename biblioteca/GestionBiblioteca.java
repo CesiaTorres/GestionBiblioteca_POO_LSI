@@ -255,14 +255,14 @@ public class GestionBiblioteca {
     public static void agregarSocio(Biblioteca p_biblioteca, Scanner p_lector) {
         System.out.print("Ingrese el DNI del socio: ");
         int dni = leerEnteroValido(p_lector);
-        System.out.print("Ingrese el nombre del socio: ");
+        System.out.print("Ingrese el nombre y apelido del socio: ");
         String nombre = p_lector.nextLine();
         System.out.print("Ingresar dias a prestar el libro: ");
         int dias = leerEnteroValido(p_lector);
         
         int tipo = 0;
         while(tipo != 1 && tipo != 2) {
-            System.out.print("1. Es estudiante, 2. Es docente: ");
+            System.out.print("Seleccione tipo de socio\n1. Es estudiante, 2. Es docente: ");
             tipo = leerEnteroValido(p_lector);
             switch (tipo) {
                 case 1:

@@ -261,8 +261,8 @@ public class Biblioteca{
             resultado += contador + ") "+ socio.toString() + "\n";
             contador++;
         }
-        resultado += "********************\n Cantidad de Socios del tipo Estudiante: " + this.cantidadSociosPorTipo("Estudiante") + "\n";
-        resultado += "Cantidad de Socios del tipo Docente: " + this.cantidadSociosPorTipo("Docente") + "\n ********************";
+        resultado += "****************************************\nCantidad de Socios del tipo Estudiante: " + this.cantidadSociosPorTipo("Estudiante") + "\n";
+        resultado += "Cantidad de Socios del tipo Docente: " + this.cantidadSociosPorTipo("Docente") + "\n ****************************************";
         return resultado;
     }
 

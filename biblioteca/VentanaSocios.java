@@ -1,6 +1,6 @@
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class VentanaSocios extends JFrame {
 
@@ -32,7 +32,7 @@ public class VentanaSocios extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 try {
                     int dni = Integer.parseInt(JOptionPane.showInputDialog("DNI:"));
-                    String nombre = JOptionPane.showInputDialog("Nombre:");
+                    String nombre = JOptionPane.showInputDialog("Nombre y apellido:");
                     int opcion = Integer.parseInt(JOptionPane.showInputDialog("1. Estudiante\n2. Docente"));
 
                     if (opcion == 1) {
@@ -43,9 +43,9 @@ public class VentanaSocios extends JFrame {
                         biblioteca.nuevoSocioDocente(dni, nombre, area);
                     }
 
-                    JOptionPane.showMessageDialog(null, "Socio registrado!");
+                    JOptionPane.showMessageDialog(null, "¡Socio registrado!");
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Datos invalidos");
+                    JOptionPane.showMessageDialog(null, ".Datos invalidos.");
                 }
             }
         });
@@ -53,13 +53,13 @@ public class VentanaSocios extends JFrame {
         btnBuscar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int dni = Integer.parseInt(JOptionPane.showInputDialog("DNI del socio:"));
+                    int dni = Integer.parseInt(JOptionPane.showInputDialog("Ingrese DNI del socio:"));
                     Socio s = biblioteca.buscarSocio(dni);
 
                     if (s != null) {
                         JOptionPane.showMessageDialog(null, s.toString());
                     } else {
-                        JOptionPane.showMessageDialog(null, "No existe ese socio");
+                        JOptionPane.showMessageDialog(null, "No existe ese socio.");
                     }
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, "Error en el DNI");
@@ -70,14 +70,14 @@ public class VentanaSocios extends JFrame {
         btnQuitar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int dni = Integer.parseInt(JOptionPane.showInputDialog("DNI del socio:"));
+                    int dni = Integer.parseInt(JOptionPane.showInputDialog("Ingrese DNI del socio:"));
                     Socio s = biblioteca.buscarSocio(dni);
 
                     if (s != null) {
                         biblioteca.quitarSocio(s);
-                        JOptionPane.showMessageDialog(null, "Socio eliminado");
+                        JOptionPane.showMessageDialog(null, "Socio eliminado.");
                     } else {
-                        JOptionPane.showMessageDialog(null, "No existe ese socio");
+                        JOptionPane.showMessageDialog(null, "No existe ese socio.");
                     }
 
                 } catch (Exception ex) {
