@@ -12,6 +12,7 @@ public class VentanaPrestamos extends JFrame {
 
         setTitle("Gestion de Prestamos");
         setSize(300, 300);
+        setPreferredSize(getSize());
         setLayout(new GridLayout(5, 1));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

@@ -11,10 +11,12 @@ public class VentanaBiblioteca extends JFrame {
         
 
         setTitle("Biblioteca - UNNE");
-        setSize(300, 250);
-
+        setSize(500, 450);
+        setPreferredSize(getSize());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLayout(new GridLayout(4, 1));
+        Fondo fondo = new Fondo("/img/fondo.jpg");
+        fondo.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 50));
+        setContentPane(fondo);
         setLocationRelativeTo(null);
         setVisible(true);
         toFront();
@@ -23,9 +25,16 @@ public class VentanaBiblioteca extends JFrame {
 
 
         JButton btnLibros = new JButton("Gestionar Libros");
+        btnLibros.setPreferredSize(new Dimension(250, 50));
         JButton btnSocios = new JButton("Gestionar Socios");
+        btnSocios.setPreferredSize(new Dimension(250, 50));
         JButton btnPrestamos = new JButton("Gestionar Prestamos");
+        btnPrestamos.setPreferredSize(new Dimension(250, 50));
         JButton btnSalir = new JButton("Guardar y Salir");
+        btnSalir.setPreferredSize(new Dimension(250, 50));
+        btnSalir.setBackground(Color.RED);
+        btnSalir.setForeground(Color.WHITE);
+        btnSalir.setBorderPainted(false);
 
         add(btnLibros);
         add(btnSocios);

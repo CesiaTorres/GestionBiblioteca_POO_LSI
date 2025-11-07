@@ -14,6 +14,7 @@ public class VentanaLibros extends JFrame {
 
         setTitle("Gestion de Libros");
         setSize(350, 300);
+        setPreferredSize(getSize());
         setLayout(new GridLayout(7, 2));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);

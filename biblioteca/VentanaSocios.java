@@ -11,6 +11,7 @@ public class VentanaSocios extends JFrame {
 
         setTitle("Gestion de Socios");
         setSize(300, 300);
+        setPreferredSize(getSize());
         setLayout(new GridLayout(6, 1));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
