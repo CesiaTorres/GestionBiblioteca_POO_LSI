@@ -11,14 +11,24 @@
  */
 public class GestionBiblioteca {
     public static void main(String[] args) {
-         Biblioteca biblioteca = new Biblioteca("Biblioteca Central");
+        GestorPersistencia gestor = new GestorPersistencia();
+
+        System.out.println("--- INICIANDO APLICACIÓN: Cargando datos (.dat)... ---");
+        GestorPersistencia.CargaDatos datosCargados = gestor.cargarDatos();
+        
+        Biblioteca biblioteca = new Biblioteca(
+            "Biblioteca - UNNE", 
+            datosCargados.libros, 
+            datosCargados.socios
+        );
+
          Scanner lector = new Scanner(System.in);
 
          int opcion = 1;
          while (opcion != 0) {
             System.out.println(biblioteca.getNombre());
             System.out.println("*** Menu Principal ***");
-            System.out.println("1. Gestionar Libros\n2. Gestionar Socios\n3. Gestionar Prestamos\n4. Abrir Interfaz Grafica\n0. Salir");
+            System.out.println("1. Gestionar Libros\n2. Gestionar Socios\n3. Gestionar Prestamos\n4. Abrir Interfaz Grafica\n0. Guardar y Salir");
             
             opcion = leerEnteroValido(lector);
                 
@@ -38,7 +48,15 @@ public class GestionBiblioteca {
                     break;
 
                 case 0:
+                    
+                    System.out.println("\n--- CERRANDO APLICACIÓN: Guardando datos (.dat)... ---");
                     System.out.println("Saliendo del programa...");
+                    try {
+                        gestor.guardarDatos(biblioteca.getLibros(), biblioteca.getSocios());
+                    } catch (Exception e) {
+                        System.err.println("¡Error fatal al guardar los datos! " + e.getMessage());
+                        e.printStackTrace();
+                    }
                     return;
                 default:
                     System.out.println("Opción no válida");
@@ -167,8 +185,13 @@ public class GestionBiblioteca {
                         break;
                     }
                 case 3:
-                    System.out.println("Lista de prestamos vencidos:\n" + p_biblioteca.prestamosVencidos());
-                    break;
+                    if(p_biblioteca.prestamosVencidos().isEmpty()) {
+                        System.out.println("No hay prestamos vencidos.");
+                        break;
+                    }else{
+                        System.out.println("Lista de prestamos vencidos:\n" + p_biblioteca.prestamosVencidos());
+                        break;
+                    }
                 case 4:
                     libro = buscarLibro(p_biblioteca, p_lector);
                     try {
@@ -197,7 +220,6 @@ public class GestionBiblioteca {
         boolean entradaValida = false;
         
         while (!entradaValida) {
-            //System.out.print("Ingrese una opción: ");
             try {           
                 valor = Integer.parseInt(p_lector.nextLine()); //Intenta convertir la línea a un entero
                 entradaValida = true;
@@ -255,14 +277,14 @@ public class GestionBiblioteca {
     public static void agregarSocio(Biblioteca p_biblioteca, Scanner p_lector) {
         System.out.print("Ingrese el DNI del socio: ");
         int dni = leerEnteroValido(p_lector);
-        System.out.print("Ingrese el nombre del socio: ");
+        System.out.print("Ingrese el nombre y apelido del socio: ");
         String nombre = p_lector.nextLine();
         System.out.print("Ingresar dias a prestar el libro: ");
         int dias = leerEnteroValido(p_lector);
         
         int tipo = 0;
         while(tipo != 1 && tipo != 2) {
-            System.out.print("1. Es estudiante, 2. Es docente: ");
+            System.out.print("Seleccione tipo de socio\n1. Es estudiante, 2. Es docente: ");
             tipo = leerEnteroValido(p_lector);
             switch (tipo) {
                 case 1:
