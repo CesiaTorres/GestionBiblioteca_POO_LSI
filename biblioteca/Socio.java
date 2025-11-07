@@ -142,7 +142,7 @@ public abstract class Socio {
     * Metodo publico que devuelve una cadena de texto 
     */
    public String toString() {
-      return "D.N.I.: " + this.getDniSocio() + " || " + this.getNombre() + "(" + this.soyDeLaClase() + ") || Libros Prestados: " + this.cantLibrosPrestados();
+      return "D.N.I.: " + this.getDniSocio() + " || " + this.getNombre() + " (" + this.soyDeLaClase() + ") || Libros Prestados: " + this.cantLibrosPrestados();
    }
 
    /**

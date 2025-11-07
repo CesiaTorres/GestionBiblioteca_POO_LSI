@@ -93,7 +93,7 @@ public class Prestamo {
      * @return Cadena con la información del préstamo
      */
     public String toString() {
-        SimpleDateFormat fecha = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat fecha = new SimpleDateFormat("dd/MM/yyyy");
         String retiro = fecha.format(this.getFechaRetiro().getTime());     
         String devolucion = " ";
 
@@ -106,6 +106,6 @@ public class Prestamo {
         return  "Retiro: " + retiro +
                 " - Devolución: " + devolucion + "\n" +
                 "Libro: " + this.getLibro().getTituloLibro() + "\n" +
-                "Socio: " + this.getSocio().getNombre();
+                "Socio: " + this.getSocio().getNombre() +"\n";
     }
 }

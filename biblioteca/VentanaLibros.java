@@ -14,15 +14,16 @@ public class VentanaLibros extends JFrame {
 
         setTitle("Gestion de Libros");
         setSize(350, 300);
-        setLayout(new GridLayout(6, 2));
+        setLayout(new GridLayout(7, 2));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
 
         // Campos para agregar libro
         add(new JLabel("Titulo:"));
         txtTitulo = new JTextField();
         add(txtTitulo);
 
-        add(new JLabel("Edicion:"));
+        add(new JLabel("Edicion (int):"));
         txtEdicion = new JTextField();
         add(txtEdicion);
 
@@ -30,7 +31,7 @@ public class VentanaLibros extends JFrame {
         txtEditorial = new JTextField();
         add(txtEditorial);
 
-        add(new JLabel("Año:"));
+        add(new JLabel("Año (int):"));
         txtAnio = new JTextField();
         add(txtAnio);
 
@@ -38,11 +39,13 @@ public class VentanaLibros extends JFrame {
         JButton btnQuitar = new JButton("Quitar Libro");
         JButton btnListar = new JButton("Listar Libros");
         JButton btnTitulos = new JButton("Listar Titulos");
+        JButton btnSalir = new JButton("Guardar y Salir");
 
         add(btnAgregar);
         add(btnQuitar);
         add(btnListar);
         add(btnTitulos);
+        add(btnSalir);
 
         // Eventos
 
@@ -56,10 +59,18 @@ public class VentanaLibros extends JFrame {
 
                     Libro l = new Libro(titulo, edicion, editorial, anio);
                     biblioteca.agregarLibro(l);
+                    JOptionPane.showMessageDialog(null, "Libro agregado!", "Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
+                    
+                    txtTitulo.setText("");
+                    txtEdicion.setText("");
+                    txtEditorial.setText("");
+                    txtAnio.setText("");
 
-                    JOptionPane.showMessageDialog(null, "Libro agregado!");
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error: Datos invalidos");
+                }catch(NumberFormatException ex){
+                    JOptionPane.showMessageDialog(null, ex.getMessage(),"Biblioteca UNNE",JOptionPane.ERROR_MESSAGE);
+                }
+                 catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Error: Datos invalidos","Biblioteca UNNE",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -71,22 +82,28 @@ public class VentanaLibros extends JFrame {
 
                 if (l != null) {
                     biblioteca.quitarLibro(l);
-                    JOptionPane.showMessageDialog(null, "Libro eliminado");
+                    JOptionPane.showMessageDialog(null, "Libro eliminado. ","Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, "No existe ese libro");
+                    JOptionPane.showMessageDialog(null, "No existe ese libro","Biblioteca UNNE",JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
 
         btnListar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, biblioteca.listaDeLibros());
+                JOptionPane.showMessageDialog(null, biblioteca.listaDeLibros(), "Lista de Libros", JOptionPane.PLAIN_MESSAGE);
             }
         });
 
         btnTitulos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, biblioteca.listaDeTitulos());
+                JOptionPane.showMessageDialog(null, biblioteca.listaDeTitulos(), "Lista de Titulos", JOptionPane.PLAIN_MESSAGE);
+            }
+        });
+
+        btnSalir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); 
             }
         });
 

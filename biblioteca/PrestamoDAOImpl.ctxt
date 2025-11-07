@@ -2,10 +2,10 @@
 comment0.target=PrestamoDAOImpl
 comment1.params=prestamos
 comment1.target=void\ guardarTodos(java.util.List)
-comment1.text=\r\n\ Guarda\ los\ pr\u00E9stamos.\ Solo\ guarda\ las\ CLAVES\ (IDs)\ de\ las\ relaciones.\r\n
+comment1.text=\n\ Guarda\ los\ pr\u00E9stamos.\ Solo\ guarda\ las\ CLAVES\ (IDs)\ de\ las\ relaciones.\n
 comment2.params=librosCargados\ sociosCargados
 comment2.target=java.util.List\ obtenerTodos(java.util.List,\ java.util.List)
-comment2.text=\r\n\ Carga\ los\ pr\u00E9stamos.\ Necesita\ las\ listas\ de\ libros\ y\ socios\r\n\ para\ "re-conectar"\ las\ referencias\ de\ objetos.\r\n\ *\ NOTA\:\ Este\ m\u00E9todo\ difiere\ de\ la\ interfaz,\ es\ espec\u00EDfico\r\n\ para\ la\ carga\ en\ el\ GestorPersistencia.\r\n
+comment2.text=\n\ Carga\ los\ pr\u00E9stamos.\ Necesita\ las\ listas\ de\ libros\ y\ socios\n\ para\ "re-conectar"\ las\ referencias\ de\ objetos.\n\ *\ NOTA\:\ Este\ m\u00E9todo\ difiere\ de\ la\ interfaz,\ es\ espec\u00EDfico\n\ para\ la\ carga\ en\ el\ GestorPersistencia.\n
 comment3.params=
 comment3.target=java.lang.String\ getNombreArchivo()
 numComments=4

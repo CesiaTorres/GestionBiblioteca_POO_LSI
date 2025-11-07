@@ -106,12 +106,17 @@ public class Biblioteca{
      * @param p_carrera  Carrera del socio estudiante.
      */
     public void nuevoSocioEstudiante(int p_dniSocio, String p_nombre, String p_carrera) {
-        Socio socio = new Estudiante(p_dniSocio, p_nombre, p_carrera);
-   
-        if (this.agregarSocio(socio)) {
-            System.out.println("Socio estudiante agregado exitosamente.");
+        if (this.buscarSocio(p_dniSocio)== null) {
+            
+            Socio socio = new Estudiante(p_dniSocio, p_nombre, p_carrera);
+    
+            if (this.agregarSocio(socio)) {
+                System.out.println("Socio estudiante agregado exitosamente.");
+            } else {
+                System.out.println("Error al agregar el socio estudiante.");
+            }
         } else {
-            System.out.println("Error al agregar el socio estudiante.");
+            System.out.println("Error: Ya existe el DNI.");
         }
     }
 
@@ -123,12 +128,17 @@ public class Biblioteca{
      * @param p_area     Área de especialización del socio docente.
      */
     public void nuevoSocioDocente(int p_dniSocio, String p_nombre, String p_area) {
-        Socio socio = new Docente(p_dniSocio, p_nombre, p_area);
-  
-        if (this.agregarSocio(socio)) {
-            System.out.println("Socio docente agregado exitosamente.");
-        } else {
-            System.out.println("Error al agregar el socio docente.");
+        if (this.buscarSocio(p_dniSocio) == null) {
+            
+            Socio socio = new Docente(p_dniSocio, p_nombre, p_area);
+    
+            if (this.agregarSocio(socio)) {
+                System.out.println("Socio docente agregado exitosamente.");
+            } else {
+                System.out.println("Error al agregar el socio docente.");
+            }
+         }else {
+            System.out.println("Error: Ya existe el DNI.");
         }
     }
 
@@ -275,7 +285,7 @@ public class Biblioteca{
         String resultado = "";
         int contador = 1;
         for (Libro libro : this.getLibros()) {
-            resultado += contador + ") "+ libro.toString() + "|| Prestado: " + (libro.prestado() ? "(Si)" : "(No)") + "\n";
+            resultado += contador + ") "+ libro.toString() + " || Prestado: " + (libro.prestado() ? "(Si)" : "(No)") + "\n";
             contador++;
         }
         return resultado;
@@ -290,7 +300,6 @@ public class Biblioteca{
         String resultado = "";
         int contador = 1;
         for (Libro libro : this.getLibros()) {
-            resultado += libro.toString() + "\n";
             resultado += contador + ") " + libro.toString() + "\n";
             contador++;
         }
@@ -307,6 +316,11 @@ public class Biblioteca{
         for (Docente unDocente : this.docentesResponsables()) { //Docente <-> Socio
             resultado += unDocente.toString() + "\n";
         }
+        
+        if(resultado.isEmpty()){
+            return resultado = "No hay docentes responsables en este momento.\n";
+        }
+
         return resultado;
     }
 }
