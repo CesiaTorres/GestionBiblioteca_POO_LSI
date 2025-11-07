@@ -23,13 +23,5 @@ comment8.target=void\ agregarSocio(Biblioteca,\ java.util.Scanner)
 comment8.text=\r\n\ Registra\ un\ nuevo\ socio.\r\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ registrar\u00E1\ el\ socio.\r\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\r\n
 comment9.params=p_biblioteca\ p_lector
 comment9.target=Socio\ buscarSocio(Biblioteca,\ java.util.Scanner)
-<<<<<<< HEAD
-<<<<<<< HEAD
 comment9.text=\r\n\ Busca\ un\ socio\ en\ la\ biblioteca.\r\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ buscar\u00E1\ el\ socio.\r\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\r\n\ @return\ Socio\ encontrado\ o\ null\ si\ no\ se\ encuentra.\r\n
-=======
-comment9.text=\n\ Busca\ un\ socio\ en\ la\ biblioteca.\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ buscar\u00E1\ el\ socio.\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\n\ @return\ Socio\ encontrado\ o\ null\ si\ no\ se\ encuentra.\n
->>>>>>> ff2f17507ac579287555494904586f14acaf6693
-=======
-comment9.text=\r\n\ Busca\ un\ socio\ en\ la\ biblioteca.\r\n\ @param\ p_biblioteca\ Biblioteca\ en\ la\ que\ se\ buscar\u00E1\ el\ socio.\r\n\ @param\ p_lector\ Lector\ de\ la\ entrada\ est\u00E1ndar.\r\n\ @return\ Socio\ encontrado\ o\ null\ si\ no\ se\ encuentra.\r\n
->>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 numComments=10
