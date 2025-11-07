@@ -9,25 +9,49 @@ public class GestorPersistencia {
     private PrestamoDAOImpl prestamoDAO; 
 
     public GestorPersistencia() {
-        this.libroDAO = new LibroDAOImpl();
-        this.socioDAO = new SocioDAOImpl();
-        this.prestamoDAO = new PrestamoDAOImpl();
+        setLibroDAO(new LibroDAOImpl());
+        setSocioDAO(new SocioDAOImpl());
+        setPrestamoDAO(new PrestamoDAOImpl());
+    }
+    //setters y getters de los DAO si es necesario
+    public LibroDAOImpl getLibroDAO() {
+        return libroDAO;
+    }
+
+    public SocioDAOImpl getSocioDAO() {
+        return socioDAO;
+    }
+    
+    public PrestamoDAOImpl getPrestamoDAO() {
+        return prestamoDAO;
+    }
+
+    private void setLibroDAO(LibroDAOImpl libroDAO) {
+        this.libroDAO = libroDAO;
+    }
+
+    private void setSocioDAO(SocioDAOImpl socioDAO) {
+        this.socioDAO = socioDAO;
+    }
+
+    private void setPrestamoDAO(PrestamoDAOImpl prestamoDAO) {
+        this.prestamoDAO = prestamoDAO;
     }
 
     /**
      * Carga todos los datos (Libros, Socios y Préstamos) y los vincula.
      */
     public CargaDatos cargarDatos() {
-        System.out.println("[Gestor] Cargando libros desde " + libroDAO.getNombreArchivo() + "...");
-        ArrayList<Libro> libros = new ArrayList<>(this.libroDAO.obtenerTodos());
+        System.out.println("[Gestor] Cargando libros desde " + getLibroDAO().getNombreArchivo() + "...");
+        ArrayList<Libro> libros = new ArrayList<>(this.getLibroDAO().obtenerTodos());
         System.out.println("[Gestor] " + libros.size() + " libros cargados.");
 
-        System.out.println("[Gestor] Cargando socios desde " + socioDAO.getNombreArchivo() + "...");
-        ArrayList<Socio> socios = new ArrayList<>(this.socioDAO.obtenerTodos());
+        System.out.println("[Gestor] Cargando socios desde " + getSocioDAO().getNombreArchivo() + "...");
+        ArrayList<Socio> socios = new ArrayList<>(this.getSocioDAO().obtenerTodos());
         System.out.println("[Gestor] " + socios.size() + " socios cargados.");
         
-        System.out.println("[Gestor] Cargando préstamos desde " + prestamoDAO.getNombreArchivo() + "...");
-        List<Prestamo> prestamos = this.prestamoDAO.obtenerTodos(libros, socios);
+        System.out.println("[Gestor] Cargando préstamos desde " + getPrestamoDAO().getNombreArchivo() + "...");
+        List<Prestamo> prestamos = this.getPrestamoDAO().obtenerTodos(libros, socios);
         System.out.println("[Gestor] " + prestamos.size() + " préstamos cargados.");
 
         vincularPrestamos(libros, socios, prestamos);
@@ -61,11 +85,11 @@ public class GestorPersistencia {
     public void guardarDatos(List<Libro> libros, List<Socio> socios) {
 
         System.out.println("\n[Gestor] Guardando " + libros.size() + " libros...");
-        this.libroDAO.guardarTodos(libros);
+        this.getLibroDAO().guardarTodos(libros);
 
  
         System.out.println("[Gestor] Guardando " + socios.size() + " socios...");
-        this.socioDAO.guardarTodos(socios);
+        this.getSocioDAO().guardarTodos(socios);
   
         List<Prestamo> todosLosPrestamos = socios.stream()
             .flatMap(socio -> socio.getPrestamos().stream())
@@ -73,7 +97,7 @@ public class GestorPersistencia {
             .collect(Collectors.toList());
 
         System.out.println("[Gestor] Guardando " + todosLosPrestamos.size() + " préstamos...");
-        this.prestamoDAO.guardarTodos(todosLosPrestamos);
+        this.getPrestamoDAO().guardarTodos(todosLosPrestamos);
         
         System.out.println("[Gestor] ¡Datos guardados exitosamente!");
     }

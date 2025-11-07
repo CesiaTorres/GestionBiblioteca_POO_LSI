@@ -8,58 +8,71 @@ public class VentanaPrestamos extends JFrame {
     private Biblioteca biblioteca;
 
     public VentanaPrestamos(Biblioteca p_biblioteca) {
-        this.biblioteca = p_biblioteca;
+        this.setBiblioteca(p_biblioteca);
 
-        setTitle("Gestion de Prestamos");
-        setSize(300, 300);
-        setPreferredSize(getSize());
-        setLayout(new GridLayout(5, 1));
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
+        this.setTitle("Gestion de Prestamos");
+        this.setSize(300, 300);
+        this.setPreferredSize(getSize());
+        this.setLayout(new GridLayout(5, 1, 15, 5));
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setLocationRelativeTo(null);
 
         JButton btnPrestar = new JButton("Registrar Prestamo");
+        btnPrestar.setBorderPainted(btnPrestar.isBorderPainted());
         JButton btnDevolver = new JButton("Registrar Devolucion");
+        btnDevolver.setBorderPainted(btnDevolver.isBorderPainted());
         JButton btnVencidos = new JButton("Listar Vencidos");
+        btnVencidos.setBorderPainted(btnVencidos.isBorderPainted());
         JButton btnQuien = new JButton("Quien tiene el libro?");
+        btnQuien.setBorderPainted(btnQuien.isBorderPainted());
         JButton btnSalir = new JButton("Guardar y Salir");
+        btnSalir.setBackground(new Color(255, 31, 31));
+        btnSalir.setForeground(Color.WHITE);
+        btnSalir.setBorderPainted(btnSalir.isBorderPainted());
 
-        add(btnPrestar);
-        add(btnDevolver);
-        add(btnVencidos);
-        add(btnQuien);
-        add(btnSalir);
+        this.add(btnPrestar);
+        this.add(btnDevolver);
+        this.add(btnVencidos);
+        this.add(btnQuien);
+        this.add(btnSalir);
 
         // === EVENTOS ===
 
         btnPrestar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    int dni = Integer.parseInt(JOptionPane.showInputDialog(null,"DNI:","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE));
-                    Socio s = biblioteca.buscarSocio(dni);
+                    int dni = Integer.parseInt(JOptionPane.showInputDialog(null, "DNI:", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE));
+                    Socio s = getBiblioteca().buscarSocio(dni);
 
                     if (s == null) {
-                        JOptionPane.showMessageDialog(null, "Socio no encontrado","Gestion de Prestamos",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Socio no encontrado", "Gestion de Prestamos",
+                                JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    String titulo = JOptionPane.showInputDialog(null,"Titulo del libro:","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
+                    String titulo = JOptionPane.showInputDialog(null, "Titulo del libro:", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE);
                     Libro l = buscarLibro(titulo);
 
                     if (l == null) {
-                        JOptionPane.showMessageDialog(null, "Libro no existe","Biblioteca UNNE",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Libro no existe", "Biblioteca UNNE",
+                                JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
                     Calendar hoy = Calendar.getInstance();
-                    if (biblioteca.prestarLibro(hoy, s, l)) {
-                        JOptionPane.showMessageDialog(null, "Prestamo registrado!","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
-                    }else {
-                        JOptionPane.showMessageDialog(null, "No se puede realizar el préstamo. Verifique la disponibilidad del libro o la capacidad del socio.","Gestion de Prestamos",JOptionPane.WARNING_MESSAGE);
+                    if (getBiblioteca().prestarLibro(hoy, s, l)) {
+                        JOptionPane.showMessageDialog(null, "Prestamo registrado!", "Gestion de Prestamos",
+                                JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "No se puede realizar el préstamo. Verifique la disponibilidad del libro o la capacidad del socio.",
+                                "Gestion de Prestamos", JOptionPane.WARNING_MESSAGE);
                     }
 
-
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error en los datos","Biblioteca UNNE",JOptionPane.ERROR);
+                    JOptionPane.showMessageDialog(null, "Error en los datos", "Biblioteca UNNE", JOptionPane.ERROR);
                 }
             }
         });
@@ -67,32 +80,39 @@ public class VentanaPrestamos extends JFrame {
         btnDevolver.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String titulo = JOptionPane.showInputDialog(null,"Titulo del libro:","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
+                    String titulo = JOptionPane.showInputDialog(null, "Titulo del libro:", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE);
                     Libro l = buscarLibro(titulo);
 
                     if (l == null) {
-                        JOptionPane.showMessageDialog(null, "Libro no encontrado","Gestion de Prestamos",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Libro no encontrado", "Gestion de Prestamos",
+                                JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    biblioteca.devolverLibro(l);
-                    JOptionPane.showMessageDialog(null, "Devolucion registrada!","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
+                    getBiblioteca().devolverLibro(l);
+                    JOptionPane.showMessageDialog(null, "Devolucion registrada!", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (LibroNoPrestadoException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(),"Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Biblioteca UNNE",
+                            JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(null, "Error en datos","Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Error en datos", "Biblioteca UNNE",
+                            JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
 
         btnVencidos.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (biblioteca.prestamosVencidos().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "No hay prestamos vencidos","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
+                if (getBiblioteca().prestamosVencidos().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No hay prestamos vencidos", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(null, biblioteca.prestamosVencidos(),"Gestion de Prestamos",JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(null, getBiblioteca().prestamosVencidos(), "Gestion de Prestamos",
+                            JOptionPane.WARNING_MESSAGE);
                 }
             }
         });
@@ -100,32 +120,42 @@ public class VentanaPrestamos extends JFrame {
         btnQuien.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 try {
-                    String titulo = JOptionPane.showInputDialog(null,"Titulo del libro:","Gestion de Prestamos",JOptionPane.INFORMATION_MESSAGE);
+                    String titulo = JOptionPane.showInputDialog(null, "Titulo del libro:", "Gestion de Prestamos",
+                            JOptionPane.INFORMATION_MESSAGE);
                     Libro l = buscarLibro(titulo);
 
                     if (l == null) {
-                        JOptionPane.showMessageDialog(null, "El libro no existe","Biblioteca UNNE",JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "El libro no existe", "Biblioteca UNNE",
+                                JOptionPane.WARNING_MESSAGE);
                         return;
                     }
 
-                    String mensaje = biblioteca.quienTieneElLibro(l);
-                    JOptionPane.showMessageDialog(null, mensaje,"Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
+                    String mensaje = getBiblioteca().quienTieneElLibro(l);
+                    JOptionPane.showMessageDialog(null, mensaje, "Biblioteca UNNE", JOptionPane.INFORMATION_MESSAGE);
 
                 } catch (LibroNoPrestadoException ex) {
-                    JOptionPane.showMessageDialog(null, ex.getMessage(),"Biblioteca UNNE",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "Biblioteca UNNE",
+                            JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
 
         btnSalir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                dispose(); 
+                dispose();
             }
         });
     }
 
+    //setters y getters de biblioteca
+    public Biblioteca getBiblioteca() {
+        return this.biblioteca;
+    }
+    public void setBiblioteca(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }
     private Libro buscarLibro(String titulo) {
-        for (Libro l : biblioteca.getLibros()) {
+        for (Libro l : this.getBiblioteca().getLibros()) {
             if (l.getTituloLibro().equalsIgnoreCase(titulo)) {
                 return l;
             }
