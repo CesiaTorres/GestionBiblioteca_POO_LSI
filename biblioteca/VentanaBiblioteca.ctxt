@@ -12,5 +12,5 @@ comment5.params=e
 comment5.target=void\ actionPerformed(java.awt.event.ActionEvent)
 comment6.params=
 comment6.target=void\ exitProcedure()
-comment6.text=\n\ Procedimiento\ centralizado\ para\ guardar\ (si\ aplica)\ y\ salir\ de\ la\ aplicaci\u00F3n.\n\ Actualmente\ finaliza\ la\ JVM;\ si\ necesit\u00E1s\ persistir\ `biblioteca`\ antes\ de\ salir,\n\ agreg\u00E1\ esa\ l\u00F3gica\ aqu\u00ED.\n
+comment6.text=\r\n\ Procedimiento\ centralizado\ para\ guardar\ (si\ aplica)\ y\ salir\ de\ la\ aplicaci\u00F3n.\r\n\ Actualmente\ finaliza\ la\ JVM;\ si\ necesit\u00E1s\ persistir\ `biblioteca`\ antes\ de\ salir,\r\n\ agreg\u00E1\ esa\ l\u00F3gica\ aqu\u00ED.\r\n
 numComments=7
