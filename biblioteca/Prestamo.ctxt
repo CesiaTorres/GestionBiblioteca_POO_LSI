@@ -1,18 +1,18 @@
 #BlueJ class context
 comment0.target=Prestamo
-comment0.text=\n\ La\ clase\ Prestamo\ representa\ el\ pr\u00E9stamo\ de\ un\ libro\ realizado\ por\ un\ socio.\n\ Contiene\ la\ fecha\ de\ retiro,\ la\ fecha\ de\ devoluci\u00F3n\ (si\ se\ devuelve),\n\ y\ las\ referencias\ al\ socio\ y\ al\ libro\ involucrados.\n\n\ Un\ pr\u00E9stamo\ se\ considera\ vencido\ cuando\ la\ fecha\ actual\ supera\n\ la\ fecha\ l\u00EDmite\ compuesta\ por\:\ fechaRetiro\ +\ d\u00EDas\ de\ pr\u00E9stamo\ asignados\ al\ socio.\n\n\ @author\ Fernandez\ Alejandro\ Facundo\n\ @version\ 1.0\n
+comment0.text=\r\n\ La\ clase\ Prestamo\ representa\ el\ pr\u00E9stamo\ de\ un\ libro\ realizado\ por\ un\ socio.\r\n\ Contiene\ la\ fecha\ de\ retiro,\ la\ fecha\ de\ devoluci\u00F3n\ (si\ se\ devuelve),\r\n\ y\ las\ referencias\ al\ socio\ y\ al\ libro\ involucrados.\r\n\r\n\ Un\ pr\u00E9stamo\ se\ considera\ vencido\ cuando\ la\ fecha\ actual\ supera\r\n\ la\ fecha\ l\u00EDmite\ compuesta\ por\:\ fechaRetiro\ +\ d\u00EDas\ de\ pr\u00E9stamo\ asignados\ al\ socio.\r\n\r\n\ @author\ Fernandez\ Alejandro\ Facundo\r\n\ @version\ 1.0\r\n
 comment1.params=p_fechaRetiro\ p_socio\ p_libro
 comment1.target=Prestamo(java.util.Calendar,\ Socio,\ Libro)
-comment1.text=\n\ Constructor\ de\ la\ clase\ Prestamo.\n\ Inicializa\ fecha\ de\ retiro\ y\ asigna\ el\ libro\ y\ socio.\n\ La\ fecha\ de\ devoluci\u00F3n\ inicia\ en\ null.\n\n\ @param\ p_fechaRetiro\ Fecha\ en\ que\ se\ retira\ el\ libro\n\ @param\ p_socio\ \ \ \ \ \ \ Socio\ que\ realiza\ el\ pr\u00E9stamo\n\ @param\ p_libro\ \ \ \ \ \ \ Libro\ prestado\n
+comment1.text=\r\n\ Constructor\ de\ la\ clase\ Prestamo.\r\n\ Inicializa\ fecha\ de\ retiro\ y\ asigna\ el\ libro\ y\ socio.\r\n\ La\ fecha\ de\ devoluci\u00F3n\ inicia\ en\ null.\r\n\r\n\ @param\ p_fechaRetiro\ Fecha\ en\ que\ se\ retira\ el\ libro\r\n\ @param\ p_socio\ \ \ \ \ \ \ Socio\ que\ realiza\ el\ pr\u00E9stamo\r\n\ @param\ p_libro\ \ \ \ \ \ \ Libro\ prestado\r\n
 comment10.params=p_fecha
 comment10.target=void\ registrarFechaDevolucion(java.util.Calendar)
-comment10.text=\n\ Registra\ la\ fecha\ de\ devoluci\u00F3n\ del\ pr\u00E9stamo.\n\n\ @param\ p_fecha\ Fecha\ en\ la\ que\ se\ devuelve\ el\ libro\n
+comment10.text=\r\n\ Registra\ la\ fecha\ de\ devoluci\u00F3n\ del\ pr\u00E9stamo.\r\n\r\n\ @param\ p_fecha\ Fecha\ en\ la\ que\ se\ devuelve\ el\ libro\r\n
 comment11.params=p_fecha
 comment11.target=boolean\ vencido(java.util.Calendar)
-comment11.text=\n\ Indica\ si\ el\ pr\u00E9stamo\ se\ encuentra\ vencido\ al\ comparar\ la\ fecha\ l\u00EDmite\n\ con\ la\ fecha\ pasada\ como\ par\u00E1metro.\n\n\ @param\ p_fecha\ Fecha\ a\ evaluar\n\ @return\ true\ si\ el\ pr\u00E9stamo\ est\u00E1\ vencido,\ false\ en\ caso\ contrario\n
+comment11.text=\r\n\ Indica\ si\ el\ pr\u00E9stamo\ se\ encuentra\ vencido\ al\ comparar\ la\ fecha\ l\u00EDmite\r\n\ con\ la\ fecha\ pasada\ como\ par\u00E1metro.\r\n\r\n\ @param\ p_fecha\ Fecha\ a\ evaluar\r\n\ @return\ true\ si\ el\ pr\u00E9stamo\ est\u00E1\ vencido,\ false\ en\ caso\ contrario\r\n
 comment12.params=
 comment12.target=java.lang.String\ toString()
-comment12.text=\n\ Devuelve\ la\ informaci\u00F3n\ detallada\ del\ pr\u00E9stamo.\n\ @return\ Cadena\ con\ la\ informaci\u00F3n\ del\ pr\u00E9stamo\n
+comment12.text=\r\n\ Devuelve\ la\ informaci\u00F3n\ detallada\ del\ pr\u00E9stamo.\r\n\ @return\ Cadena\ con\ la\ informaci\u00F3n\ del\ pr\u00E9stamo\r\n
 comment2.params=p_fecha
 comment2.target=void\ setFechaRetiro(java.util.Calendar)
 comment3.params=p_fecha

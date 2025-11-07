@@ -127,51 +127,51 @@ dependency29.type=UsesDependency
 dependency3.from=VentanaPrestamos
 dependency3.to=Biblioteca
 dependency3.type=UsesDependency
-dependency30.from=VentanaSocios
-dependency30.to=Biblioteca
+dependency30.from=GestionBiblioteca
+dependency30.to=GestorPersistencia
 dependency30.type=UsesDependency
-dependency31.from=VentanaSocios
-dependency31.to=Socio
+dependency31.from=GestionBiblioteca
+dependency31.to=Biblioteca
 dependency31.type=UsesDependency
-dependency32.from=GestorPersistencia
-dependency32.to=LibroDAOImpl
+dependency32.from=GestionBiblioteca
+dependency32.to=VentanaBiblioteca
 dependency32.type=UsesDependency
-dependency33.from=GestorPersistencia
-dependency33.to=SocioDAOImpl
+dependency33.from=GestionBiblioteca
+dependency33.to=Libro
 dependency33.type=UsesDependency
-dependency34.from=GestorPersistencia
-dependency34.to=PrestamoDAOImpl
+dependency34.from=GestionBiblioteca
+dependency34.to=Socio
 dependency34.type=UsesDependency
-dependency35.from=GestorPersistencia
-dependency35.to=Libro
+dependency35.from=GestionBiblioteca
+dependency35.to=LibroNoPrestadoException
 dependency35.type=UsesDependency
-dependency36.from=GestorPersistencia
-dependency36.to=Socio
+dependency36.from=VentanaSocios
+dependency36.to=Biblioteca
 dependency36.type=UsesDependency
-dependency37.from=GestorPersistencia
-dependency37.to=Prestamo
+dependency37.from=VentanaSocios
+dependency37.to=Socio
 dependency37.type=UsesDependency
-dependency38.from=GestionBiblioteca
-dependency38.to=GestorPersistencia
+dependency38.from=GestorPersistencia
+dependency38.to=LibroDAOImpl
 dependency38.type=UsesDependency
-dependency39.from=GestionBiblioteca
-dependency39.to=Biblioteca
+dependency39.from=GestorPersistencia
+dependency39.to=SocioDAOImpl
 dependency39.type=UsesDependency
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
 dependency4.from=VentanaPrestamos
 dependency4.to=Socio
 dependency4.type=UsesDependency
-dependency40.from=GestionBiblioteca
-dependency40.to=VentanaBiblioteca
+dependency40.from=GestorPersistencia
+dependency40.to=PrestamoDAOImpl
 dependency40.type=UsesDependency
-dependency41.from=GestionBiblioteca
+dependency41.from=GestorPersistencia
 dependency41.to=Libro
 dependency41.type=UsesDependency
-dependency42.from=GestionBiblioteca
+dependency42.from=GestorPersistencia
 dependency42.to=Socio
 dependency42.type=UsesDependency
-dependency43.from=GestionBiblioteca
-dependency43.to=LibroNoPrestadoException
+dependency43.from=GestorPersistencia
+dependency43.to=Prestamo
 dependency43.type=UsesDependency
 dependency44.from=VentanaBiblioteca
 dependency44.to=Biblioteca
@@ -211,6 +211,7 @@ dependency8.type=UsesDependency
 dependency9.from=Biblioteca
 dependency9.to=Libro
 dependency9.type=UsesDependency
+<<<<<<< HEAD
 editor.fx.0.height=739
 editor.fx.0.width=816
 editor.fx.0.x=275
@@ -221,6 +222,18 @@ package.divider.horizontal=0.6
 package.divider.vertical=0.8474842767295597
 package.editor.height=532
 package.editor.width=1213
+=======
+editor.fx.0.height=0
+editor.fx.0.width=0
+editor.fx.0.x=0
+editor.fx.0.y=0
+objectbench.height=182
+objectbench.width=1880
+package.divider.horizontal=0.6
+package.divider.vertical=0.8020942408376963
+package.editor.height=759
+package.editor.width=1764
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 package.editor.x=0
 <<<<<<< HEAD
 package.editor.y=0
@@ -302,11 +315,15 @@ target14.name=GestionBiblioteca
 target14.showInterface=false
 target14.type=ClassTarget
 <<<<<<< HEAD
+<<<<<<< HEAD
 target14.width=130
 target14.x=690
 target14.y=170
 =======
 target14.width=120
+=======
+target14.width=130
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 target14.x=620
 target14.y=420
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
@@ -327,11 +344,15 @@ target16.name=GestorPersistencia
 target16.showInterface=false
 target16.type=ClassTarget
 <<<<<<< HEAD
+<<<<<<< HEAD
 target16.width=140
 target16.x=30
 target16.y=360
 =======
 target16.width=130
+=======
+target16.width=140
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 target16.x=10
 target16.y=210
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
@@ -340,11 +361,15 @@ target17.name=VentanaBiblioteca
 target17.showInterface=false
 target17.type=ClassTarget
 <<<<<<< HEAD
+<<<<<<< HEAD
 target17.width=140
 target17.x=550
 target17.y=270
 =======
 target17.width=130
+=======
+target17.width=140
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 target17.x=140
 target17.y=360
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
@@ -365,11 +390,15 @@ target3.name=VentanaPrestamos
 target3.showInterface=false
 target3.type=ClassTarget
 <<<<<<< HEAD
+<<<<<<< HEAD
 target3.width=140
 target3.x=740
 target3.y=20
 =======
 target3.width=130
+=======
+target3.width=140
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 target3.x=10
 target3.y=200
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
@@ -426,11 +455,15 @@ target8.name=PrestamoDAOImpl
 target8.showInterface=false
 target8.type=ClassTarget
 <<<<<<< HEAD
+<<<<<<< HEAD
 target8.width=140
 target8.x=30
 target8.y=460
 =======
 target8.width=130
+=======
+target8.width=140
+>>>>>>> 1fa807acd6981248f020c5c65a100a0ec114fdc6
 target8.x=10
 target8.y=210
 >>>>>>> ff2f17507ac579287555494904586f14acaf6693
