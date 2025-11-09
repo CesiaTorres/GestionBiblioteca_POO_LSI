@@ -1,4 +1,7 @@
  import java.util.*;
+ import persistencia.*;
+ import biblioteca.*;
+ import GUI.*;
 /**
  * La clase GestionBiblioteca es la encargada de gestionar la información de la biblioteca.
  * 

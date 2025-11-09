@@ -1,3 +1,5 @@
+package biblioteca;
+
 import java.util.*;
  /**
  * La clase Docente representa a un socio del tipo docente dentro del sistema de biblioteca.

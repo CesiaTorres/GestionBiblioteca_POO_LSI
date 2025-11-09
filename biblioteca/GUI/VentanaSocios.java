@@ -1,3 +1,5 @@
+package GUI;
+import biblioteca.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
