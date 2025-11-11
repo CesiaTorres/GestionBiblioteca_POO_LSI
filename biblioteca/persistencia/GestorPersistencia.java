@@ -65,15 +65,15 @@ public class GestorPersistencia {
      * Asigna los préstamos cargados (que ya tienen las referencias correctas)
      * a las listas internas de los objetos Socio y Libro.
      */
-    private void vincularPrestamos(ArrayList<Libro> libros, ArrayList<Socio> socios, List<Prestamo> prestamos) {
-        System.out.println("[Gestor] Vinculando " + prestamos.size() + " préstamos a Socios y Libros...");
+    private void vincularPrestamos(ArrayList<Libro> p_libros, ArrayList<Socio> p_socios, List<Prestamo> p_prestamos) {
+        System.out.println("[Gestor] Vinculando " + p_prestamos.size() + " préstamos a Socios y Libros...");
         
-        socios.forEach(s -> s.getPrestamos().clear());
-        libros.forEach(l -> l.getArrayPrestamos().clear());
+        p_socios.forEach(socio -> socio.getPrestamos().clear());
+        p_libros.forEach(libro -> libro.getArrayPrestamos().clear());
         
-        for (Prestamo p : prestamos) {
-            p.getSocio().agregarPrestamo(p);
-            p.getLibro().agregarPrestamo(p);
+        for (Prestamo prestamo : p_prestamos) {
+            prestamo.getSocio().agregarPrestamo(prestamo);
+            prestamo.getLibro().agregarPrestamo(prestamo);
         }
         System.out.println("[Gestor] Vinculación completada.");
     }
@@ -107,6 +107,6 @@ public class GestorPersistencia {
     public static class CargaDatos {
         public final ArrayList<Libro> libros;
         public final ArrayList<Socio> socios;
-        public CargaDatos(ArrayList<Libro> l, ArrayList<Socio> s) { this.libros = l; this.socios = s; }
+        public CargaDatos(ArrayList<Libro> p_libros, ArrayList<Socio> p_socios) { this.libros = p_libros; this.socios = p_socios; }
     }
 }

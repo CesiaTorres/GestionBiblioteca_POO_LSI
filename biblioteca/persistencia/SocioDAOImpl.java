@@ -10,9 +10,9 @@ public class SocioDAOImpl {
     private static final String TIPO_ESTUDIANTE = "EST";
     private static final String TIPO_DOCENTE = "DOC";
 
-    public void guardarTodos(List<Socio> socios) {
+    public void guardarTodos(List<Socio> p_socios) {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(NOMBRE_ARCHIVO))) {
-            for (Socio socio : socios) {
+            for (Socio socio : p_socios) {
                 if (socio instanceof Estudiante) {
                     dos.writeUTF(TIPO_ESTUDIANTE);
                     dos.writeInt(socio.getDniSocio());
@@ -65,9 +65,9 @@ public class SocioDAOImpl {
  
     public String getNombreArchivo() { return NOMBRE_ARCHIVO; }
 
-    public Socio obtenerPorDni(int dni) {
+    public Socio obtenerPorDni(int p_dni) {
         return obtenerTodos().stream()
-                .filter(s -> s.getDniSocio() == dni)
+                .filter(socio -> socio.getDniSocio() == p_dni)
                 .findFirst()
                 .orElse(null);
     }
