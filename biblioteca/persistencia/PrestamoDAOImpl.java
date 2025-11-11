@@ -16,17 +16,17 @@ public class PrestamoDAOImpl  {
      * Guarda los préstamos. Solo guarda las CLAVES (IDs) de las relaciones.
      */
   
-    public void guardarTodos(List<Prestamo> prestamos) {
+    public void guardarTodos(List<Prestamo> p_prestamos) {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(NOMBRE_ARCHIVO))) {
-            for (Prestamo p : prestamos) {
-                dos.writeInt(p.getSocio().getDniSocio()); 
-                dos.writeUTF(p.getLibro().getTituloLibro());
+            for (Prestamo prestamo : p_prestamos) {
+                dos.writeInt(prestamo.getSocio().getDniSocio()); 
+                dos.writeUTF(prestamo.getLibro().getTituloLibro());
 
-                dos.writeLong(p.getFechaRetiro().getTimeInMillis());
+                dos.writeLong(prestamo.getFechaRetiro().getTimeInMillis());
                 
                 long fechaDevLong = -1L; 
-                if (p.getFechaDevolucion() != null) {
-                    fechaDevLong = p.getFechaDevolucion().getTimeInMillis();
+                if (prestamo.getFechaDevolucion() != null) {
+                    fechaDevLong = prestamo.getFechaDevolucion().getTimeInMillis();
                 }
                 dos.writeLong(fechaDevLong);
             }
@@ -41,11 +41,11 @@ public class PrestamoDAOImpl  {
      * * NOTA: Este método difiere de la interfaz, es específico
      * para la carga en el GestorPersistencia.
      */
-    public List<Prestamo> obtenerTodos(List<Libro> librosCargados, List<Socio> sociosCargados) {
+    public List<Prestamo> obtenerTodos(List<Libro> p_librosCargados, List<Socio> p_sociosCargados) {
         List<Prestamo> prestamos = new ArrayList<>();
-        Map<Integer, Socio> mapaSocios = sociosCargados.stream()
+        Map<Integer, Socio> mapaSocios = p_sociosCargados.stream()
             .collect(Collectors.toMap(Socio::getDniSocio, Function.identity()));
-        Map<String, Libro> mapaLibros = librosCargados.stream()
+        Map<String, Libro> mapaLibros = p_librosCargados.stream()
             .collect(Collectors.toMap(Libro::getTituloLibro, Function.identity()));
 
         try (DataInputStream dis = new DataInputStream(new FileInputStream(NOMBRE_ARCHIVO))) {
@@ -62,14 +62,14 @@ public class PrestamoDAOImpl  {
                     Calendar fechaRetiro = Calendar.getInstance();
                     fechaRetiro.setTimeInMillis(fechaRetiroLong);
                     
-                    Prestamo p = new Prestamo(fechaRetiro, socioRef, libroRef);
+                    Prestamo prestamo = new Prestamo(fechaRetiro, socioRef, libroRef);
                     
                     if (fechaDevLong != -1L) {
                         Calendar fechaDev = Calendar.getInstance();
                         fechaDev.setTimeInMillis(fechaDevLong);
-                        p.registrarFechaDevolucion(fechaDev);
+                        prestamo.registrarFechaDevolucion(fechaDev);
                     }
-                    prestamos.add(p);
+                    prestamos.add(prestamo);
                 } else {
                     System.err.println("Advertencia: No se encontró Socio (DNI " + dniSocio + ") o Libro ('" + tituloLibro + "') para un préstamo. Se ignora.");
                 }

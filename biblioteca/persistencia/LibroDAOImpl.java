@@ -15,11 +15,11 @@ public class LibroDAOImpl {
      * se reescribe el archivo solo con los datos válidos (la lista actual).
      */
 
-    public void guardarTodos(List<Libro> libros) {
+    public void guardarTodos(List<Libro> p_libros) {
         try (FileOutputStream fos = new FileOutputStream(NOMBRE_ARCHIVO, false);
              DataOutputStream dos = new DataOutputStream(fos)) { 
 
-            for (Libro libro : libros) {
+            for (Libro libro : p_libros) {
                 dos.writeUTF(libro.getTituloLibro());   
                 dos.writeInt(libro.getEdicionLibro());   
                 dos.writeUTF(libro.getEditorialLibro()); 
@@ -60,16 +60,16 @@ public class LibroDAOImpl {
     public String getNombreArchivo() { return NOMBRE_ARCHIVO; }
 
  
-    public void guardarLibro(Libro libro) {
+    public void guardarLibro(Libro p_libro) {
         List<Libro> libros = obtenerTodos();
-        libros.add(libro);
+        libros.add(p_libro);
         guardarTodos(libros);
     }
     
 
     public Libro obtenerPorTitulo(String titulo) {
         return obtenerTodos().stream()
-                .filter(l -> l.getTituloLibro().equalsIgnoreCase(titulo))
+                .filter(libro -> libro.getTituloLibro().equalsIgnoreCase(titulo))
                 .findFirst()
                 .orElse(null);
     }
