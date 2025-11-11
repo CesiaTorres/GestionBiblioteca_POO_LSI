@@ -64,8 +64,13 @@ public class Biblioteca{
     public boolean agregarLibro(Libro p_libro) {
         return this.getLibros().add(p_libro);
     }
-    public boolean quitarLibro(Libro p_libro){
-        return this.getLibros().remove(p_libro);
+
+    public boolean quitarLibro(Libro p_libro) {
+        if (p_libro.prestado()) {
+            return false;
+        } else {
+            return this.getLibros().remove(p_libro);
+        }
     }
     public boolean agregarSocio(Socio p_socio) {
         return this.getSocios().add(p_socio);

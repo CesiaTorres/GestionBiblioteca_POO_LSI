@@ -92,9 +92,13 @@ public class VentanaLibros extends JFrame {
                 Libro l = buscarLibro(titulo);
 
                 if (l != null) {
-                    getBiblioteca().quitarLibro(l);
-                    JOptionPane.showMessageDialog(null, "Libro eliminado. ", "Biblioteca UNNE",
+                    if (getBiblioteca().quitarLibro(l)) {
+                        JOptionPane.showMessageDialog(null, "Libro eliminado. ", "Biblioteca UNNE",
                             JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo eliminar el Libro. ", "Biblioteca UNNE",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "No existe ese libro", "Biblioteca UNNE",
                             JOptionPane.WARNING_MESSAGE);
