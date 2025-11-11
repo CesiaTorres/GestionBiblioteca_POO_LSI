@@ -22,7 +22,7 @@ public class Estudiante extends Socio {
      * @param p_carrera        Carrera que el estudiante está cursando
      */
     public Estudiante(int p_dniSocio, String p_nombre, ArrayList<Prestamo> p_listaPrestamos, String p_carrera){
-        super(p_dniSocio, p_nombre, 0, p_listaPrestamos);
+        super(p_dniSocio, p_nombre, 20, p_listaPrestamos);
         this.setCarrera(p_carrera);
     }
     /**
@@ -35,7 +35,7 @@ public class Estudiante extends Socio {
      * @param p_carrera        Carrera que el estudiante está cursando
      */
     public Estudiante(int p_dniSocio, String p_nombre, String p_carrera){
-        super(p_dniSocio, p_nombre, 0);
+        super(p_dniSocio, p_nombre, 20);
         this.setCarrera(p_carrera);
     }
 
